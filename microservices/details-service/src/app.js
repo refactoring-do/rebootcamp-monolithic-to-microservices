@@ -1,9 +1,12 @@
-const express = require("express");
+const express = require('express');
+
+const { ProductController } = require('./controllers');
+
 const app = express();
-const { ProductController } = require("./controllers");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/api/product/:productId", ProductController.getProductById);
+app.get('/api/product/:productId', ProductController.getProductById);
 
 module.exports = app;

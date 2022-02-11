@@ -1,14 +1,12 @@
-const mongoose = require("mongoose");
-const { PORT, SERVICE_NAME, MONGO_URI } = require("./src/config");
-const app = require("./src/app");
-
-mongoose.set("useCreateIndex", true);
+const mongoose = require('mongoose');
+const { PORT, SERVICE_NAME, MONGO_URI } = require('./src/config');
+const app = require('./src/app');
 
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(() => {
     app.listen(PORT, () => {

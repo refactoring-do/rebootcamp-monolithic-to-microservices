@@ -3,11 +3,7 @@ const { PORT, SERVICE_NAME, MONGO_URI } = require('./src/config');
 const app = require('./src/app');
 
 mongoose
-  .connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
+  .connect(MONGO_URI)
   .then(() => {
     app.listen(PORT, () => {
       console.log(`${SERVICE_NAME} running on port ${PORT}`);
